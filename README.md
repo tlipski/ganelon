@@ -8,6 +8,12 @@ More information, documentation, tutorials and live demo are available at [http:
 
 API docs are provided as well: [http://ganelon.tomeklipski.com/doc/index.html](http://ganelon.tomeklipski.com/doc/index.html)
 
+Installation
+-----------------------
+If you are using leiningen, just add following dependency to your project.clj file:
+
+    [ganelon "0.7-SNAPSHOT"]
+
 License
 -----------------------
 Copyright © 2013 Tomek Lipski
