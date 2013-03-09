@@ -7,8 +7,7 @@
 ;; remove this notice, or any other, from this software.
 
 (ns ganelon.web.middleware
-"Simple middleware utility functions."
-  )
+"Simple middleware utility functions.")
 
 ;(defn fix-utf-8-header [request handler]
 ;  "Noir utf-8 middleware does not support other content types then text/html - e.g. json responses"

@@ -10,8 +10,7 @@
 "This namespace provides wrapping functions for defining certain out of the box UI operations.
 
 An operation is a command send from an AJAX action to thin JavaScript layer.
-"
-  )
+")
 
 ;we could use macros, but i.e. La Clojure plugin does not work well with that :(
 (defn- ui-operation [type & params]

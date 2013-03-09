@@ -7,7 +7,7 @@
 ;; remove this notice, or any other, from this software.
 
 (ns ganelon.util.logging
-  "Additional utility logging functions, with features such as noir.request/*request* capture
+  "Additional webapp-related utility logging functions, with features such as noir.request/*request* capture
   or logging and returning of a value or execution duration logging."
   (:require [clojure.tools.logging :as logging]
             [ganelon.util :as common]
@@ -37,7 +37,8 @@ Example:
       (reduce str msg))))
 
 (defmacro log
-  "Log enriched message with appropriate clojure.tools.logging log level.
+  "Log enriched message with appropriate clojure.tools.logging log level, taking potential noir.request/*request*
+  into account
 Parameters:
  level - log level keyword, e.g. :info, :debug, :warn, :error
  & msg - values to be logged
