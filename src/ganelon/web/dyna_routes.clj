@@ -96,6 +96,19 @@ Example usage:
   []
   (route-ns-fn :default ))
 
+(defmacro defpage-ns
+"Macro inspired by Noir's defpage, but with a full access to Compojure's parameters support.
+Registers route for a provided path and parameters using compojure.core/ANY macro in a supplied namespace.
+
+Example usage:
+
+(ganelon.web.dyna-routes/defpage-ns :default \"/routing/sample\" []
+  \"Hello world!\")"
+  ([name-space path args & body]
+  `(setroute! ~name-space ~path
+    (compojure/ANY ~path ~args
+      ~@body))))
+
 (defmacro defpage
 "Macro inspired by Noir's defpage, but with a full access to Compojure's parameters support.
 Registers route for a provided path and parameters using compojure.core/ANY macro in a :default namespace.
@@ -105,9 +118,7 @@ Example usage:
 (ganelon.web.dyna-routes/defpage \"/routing/sample\" []
   \"Hello world!\")"
   ([path args & body]
-  `(setroute! ~path
-    (compojure/ANY ~path ~args
-      ~@body))))
+    `(defpage-ns :default ~path ~args ~@body)))
 
 
 

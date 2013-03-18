@@ -59,7 +59,7 @@ Example:
   (merge (apply hash-map params) (ui-operation "notification" :title title :text body)))
 
 (defn refresh-page
-"Refresh browsers page through JavaScript.
+"Refresh browser's page through JavaScript.
 
 Client side operation type is 'refresh-page'.
 
@@ -68,6 +68,17 @@ Example:
 (refresh-page)"
   []
   (ui-operation "refresh-page"))
+
+(defn open-page
+"Open page URL through JavaScript.
+
+Client side operation type is 'open-page'.
+
+Example:
+
+(open-page \"/another-page\")"
+  [url]
+  (ui-operation "open-page" :url url))
 
 (defn fade
 "Replace a part(s) of DOM referenced by id (which is a jQuery selector string).
