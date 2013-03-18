@@ -72,7 +72,7 @@ Ganelon.registerOperation = function(name, fn) {
 
 Ganelon.registerOperation('notification', function(o) { alert(o.title + ':\n' + o.text); });
 Ganelon.registerOperation('refresh-page', function(o) { location.reload(); });
-Ganelon.registerOperation('open-page', function(o) { location.go(o.url); });
+Ganelon.registerOperation('open-page', function(o) { location.assign(o.url); });
 Ganelon.registerOperation('open-window', function(o) { window.open(o.url, o.name, o.options); });
 //useful functions from http://api.jquery.com/category/manipulation/
 Ganelon.registerOperation('dom-add-class', function(o) {$(o.id).addClass(o.value);});
