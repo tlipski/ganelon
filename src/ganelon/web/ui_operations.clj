@@ -13,10 +13,10 @@ An operation is a command send from an AJAX action to thin JavaScript layer.
 ")
 
 ;we could use macros, but i.e. La Clojure plugin does not work well with that :(
-(defn- ui-operation [type & params]
+(defn ui-operation [type & params]
   (assoc (apply hash-map params) :type type))
 
-(defn- ui-operation-with-id-value [type id value]
+(defn ui-operation-with-id-value [type id value]
   {:type type :id id :value value})
 
 (defn remove-modal

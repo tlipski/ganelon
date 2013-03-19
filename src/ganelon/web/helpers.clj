@@ -19,7 +19,8 @@
 "Extract current request URL (without query or anchor) from noir.request/*request*."
   []
   (let [r request/*request*]
-    (str (:scheme r) "://" (:server-name r) ":" (:server-port r) (:uri r))))
+    (println r)
+    (str (name (:scheme r)) "://" (:server-name r) ":" (:server-port r) (:uri r))))
 
 (defn get-request-parameter
 "Get noir.request/*request* parameter by name."
