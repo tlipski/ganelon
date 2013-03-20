@@ -12,7 +12,7 @@ Installation
 -----------------------
 If you are using leiningen, just add following dependency to your project.clj file:
 
-    [ganelon "0.7-SNAPSHOT"]
+    [ganelon "0.8-SNAPSHOT"]
 
 License
 -----------------------
