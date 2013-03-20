@@ -20,7 +20,7 @@
 "Provide basic Ganelon features:
 * :default routes from ganelon.web.dyna-routes, providing actions and other routes defined in this group (e.g. using defpage or defjsonaction)
 * Access to static resources for package 'public' with (compojure.route/resources \"/\")
-* keywordized params through ring.middleware.keyword-params/wrap-keyword-params and ring.middleware.params/wrap-params
+* noir&ring middleware: noir-validation, request-map, keyword-params, nested-params, multipart-params, params, noir-cookies, noir-flash, noir-session
 
 Takes additional Ring routes/handlers as parameters.
 
@@ -37,13 +37,21 @@ Example usage:
 
   [& routes]
   (->
-    (noir.util.middleware/app-handler
+    (apply compojure.core/routes
       (conj
         routes
         (dyna-routes/route-ns-fn :default)
         (route/resources "/")))
+    (noir.validation/wrap-noir-validation)
+    (noir.util.middleware/wrap-request-map)
     (ring.middleware.keyword-params/wrap-keyword-params)
-    (ring.middleware.params/wrap-params)))
+    (ring.middleware.nested-params/wrap-nested-params)
+    (ring.middleware.multipart-params/wrap-multipart-params)
+    (ring.middleware.params/wrap-params)
+    (noir.cookies/wrap-noir-cookies)
+    (noir.session/wrap-noir-flash)
+    (noir.session/wrap-noir-session {:store (ring.middleware.session.memory/memory-store
+                                              noir.session/mem)})))
 
 (defn javascript-actions-route
 "Return compojure route with access to JavaScript interface for actions, handled by ganelon.web.actions/javascript-actions-handler.

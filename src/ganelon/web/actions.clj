@@ -11,6 +11,7 @@
   (:require [ganelon.util.logging :as logging]
             [compojure.core :as compojure]
             [noir.response :as response]
+            [noir.request :as request]
             [hiccup.core :as hiccup]
             [ganelon.util :as common]
             [ganelon.web.dyna-routes :as dr]
@@ -114,7 +115,7 @@ This macro does not register handler with ganelon.web.dyna-routes."
      (JSONACTION ~name ~params
       (when-let [res# (do ~@body)]
         (ui/replace-with
-          *widget-id*
+          (or (:widget-id (:params request/*request*)) (get (:params request/*request*) "widget-id"))
           res#)))
      wrap-set-widget-id))
 
