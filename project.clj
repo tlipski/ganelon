@@ -11,7 +11,7 @@
   :url "http://ganelon.tomeklipski.com"
   :dependencies [[ganelon-util "0.8-SNAPSHOT"]
                  [org.clojure/clojure "1.4.0" ]
-                 [lib-noir "0.4.6" :exclusions [org.clojure/clojure]]
+                 [lib-noir "0.4.9" :exclusions [org.clojure/clojure]]
                  [org.clojure/tools.logging "0.2.3" :exclusions [org.clojure/clojure]]]
   :plugins [[codox "0.6.4"]]
   :codox {:src-dir-uri "http://github.com/tlipski/ganelon/blob/master"
