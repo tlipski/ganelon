@@ -68,8 +68,8 @@ Example:
 
 (actions/put-operation! (ui/notification \"Success\"
   (h/html \"Message set to: \" [:b (hiccup.util/escape-html msg)])))"
-  [operation]
-  (swap! *operation-queue* #(conj % operation))
+  [& operations]
+  (swap! *operation-queue* #(apply conj % operations))
   nil)
 
 (defmacro JSONACTION
