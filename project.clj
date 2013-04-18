@@ -6,10 +6,10 @@
 ;; agreeing to be bound by the terms of this license.  You must not
 ;; remove this notice, or any other, from this software.
 
-(defproject ganelon "0.9-SNAPSHOT"
+(defproject ganelon "0.9.0"
   :description "Microframework bringing instant development of AJAX-enabled web applications to Clojure/Ring."
   :url "http://ganelon.tomeklipski.com"
-  :dependencies [[ganelon-util "0.8-SNAPSHOT"]
+  :dependencies [[ganelon-util "0.8.0"]
                  [org.clojure/clojure "1.4.0" ]
                  [lib-noir "0.4.9" :exclusions [org.clojure/clojure]]
                  [org.clojure/tools.logging "0.2.3" :exclusions [org.clojure/clojure]]]
